@@ -41,6 +41,12 @@ export OPENROUTER_API_KEY="your-api-key"
 
 ## Usage
 
+Print the application usage page:
+
+```sh
+npm run help
+```
+
 ```sh
 npm start -- <image-file> "<what-to-remove>" [quality] [--output-format <png|jpeg|webp|svg>] [--aspect-ratio <ratio>] [--resolution <tier>] [--nooutput]
 ```

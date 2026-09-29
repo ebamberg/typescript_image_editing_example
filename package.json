@@ -30,6 +30,7 @@
   "scripts": {
     "build": "tsc --noCheck",
     "start": "node --import tsx src/app.ts",
+    "help": "node --import tsx src/app.ts --help",
     "test": "vitest run"
   },
   "author": "erik.bambeg@web.de",
