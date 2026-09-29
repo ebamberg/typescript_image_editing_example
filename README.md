@@ -15,6 +15,10 @@ The comparison layout below is built from synthetic artwork to demonstrate the v
 - Node.js
 - An OpenRouter API key with access to the configured image-generation model
 
+## Model
+
+Image generation uses [`google/gemini-3-pro-image-preview`](https://openrouter.ai/google/gemini-3-pro-image-preview) through OpenRouter.
+
 ## Setup
 
 Install dependencies:
