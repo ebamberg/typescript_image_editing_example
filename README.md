@@ -8,9 +8,7 @@ The comparison layout below is built from synthetic artwork to demonstrate the v
 
 ![Synthetic before-and-after comparison preview](docs/images/comparison-preview.png)
 
-| Synthetic input | Synthetic edited result |
-| --- | --- |
-| ![Synthetic room scene with a person](docs/images/synthetic-before.png) | ![Synthetic room scene with the person removed](docs/images/synthetic-after.png) |
+
 
 ## Requirements
 
