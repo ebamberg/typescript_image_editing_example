@@ -9,6 +9,7 @@ import { imageBufferToBase64, OutputDefinition, readImage, viewImageComparison }
 import { LOG_COLOR, log, startProgressBar, startSpinner } from "./logging";
 import { OpenRouter } from "@openrouter/sdk";
 import type { CreateImagesResponse } from "@openrouter/sdk/models/operations";
+import sharp, { type FormatEnum } from "sharp";
 
 const openRouter = new OpenRouter({
   apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
@@ -71,7 +72,17 @@ async function saveResponseImages(
           `${inputFile.name}_edited_${index + 1}.${outputDefinition.outputFormat}`,
         );
         const imageBuffer = Buffer.from(imageData.b64Json, "base64");
-        await writeFile(outputFilePath, imageBuffer);
+
+        await sharp(imageBuffer)
+          .rotate()
+          .toFormat(outputDefinition.outputFormat as keyof FormatEnum, { quality: 100 })
+          .toFile(outputFilePath, (err) => {
+            if (err) {
+              console.error(err);
+            } else {
+              console.log(`${name}.${outputDefinition.outputFormat} saved`);
+            }
+          });
         generatedImages.push(imageBuffer);
         outputPaths.push(outputFilePath);
         progressBar.increment();
